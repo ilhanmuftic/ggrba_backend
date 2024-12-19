@@ -44,12 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'ggrba_backend',
     'app'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -143,6 +145,16 @@ ALLOWED_HOSTS = [
     'www.asistentica.online',
     'localhost'
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # React app in development
+    'http://127.0.0.1:3000',  # Include this if you're accessing via IP
+    'https://asistentica.online',  # Your deployed frontend
+    'https://www.asistentica.online',  # Include 'www' if applicable
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
