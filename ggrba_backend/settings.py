@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'ggrba_backend',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -137,5 +140,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = [
     'asistentica.online',
     '127.0.0.1',  # Include localhost for internal access
-    'www.asistentica.online'  # If you use a "www" subdomain
+    'www.asistentica.online',
+    'localhost'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
+    'PAGE_SIZE': 10,  # Number of items per page
+}

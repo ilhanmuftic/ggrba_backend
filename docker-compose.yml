@@ -30,6 +30,8 @@ services:
       - db-data:/var/lib/postgresql/data
     networks:
       - geoguesser-network
+    ports:
+      - "5432:5432"  # Expose the database to the host
 
 networks:
   geoguesser-network:
