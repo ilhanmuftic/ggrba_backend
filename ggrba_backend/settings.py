@@ -32,8 +32,6 @@ SECRET_KEY = 'django-insecure-)^)yoceq(3gr(b3!i_1=@s_03u1ke(m2o0bgu*kvn_92qt(+cc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -171,4 +169,23 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
     ],
+        
+    'EXCEPTION_HANDLER': 'app.utils.handlers.custom_exception_handler',
+
+}
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
 }

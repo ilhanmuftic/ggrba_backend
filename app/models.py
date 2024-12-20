@@ -25,3 +25,6 @@ class Location(models.Model):
     @property
     def is_deleted(self):
         return self.deleted_at is not None
+    
+    class Meta:
+        unique_together = ('lat', 'lng')
